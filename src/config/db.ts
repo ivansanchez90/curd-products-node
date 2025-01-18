@@ -1,4 +1,4 @@
-import { Sequelize } from 'sequelize'
+import { Sequelize } from 'sequelize-typescript'
 import dotenv from 'dotenv'
 dotenv.config()
 
@@ -8,6 +8,7 @@ const db = new Sequelize(
   process.env.POSTGRES_PASSWORD,
   {
     dialect: 'postgres',
+    models: [__dirname + '/../models/**/*.ts'],
   }
 )
 

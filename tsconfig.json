@@ -2,6 +2,9 @@
   "compilerOptions": {
     "outDir": "./dist",
     "rootDir": "./src",
+    "target": "ESNext",
+    "moduleResolution": "nodenext",
+    "module": "NodeNext",
     "lib": [
       // other libs...
       "ES6",
@@ -11,7 +14,9 @@
     "strict": false,
     "sourceMap": true,
     "esModuleInterop": true,
-    "declaration": true
+    "declaration": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true
     // other settings...
   },
   "include": ["src/**/*.ts"]
