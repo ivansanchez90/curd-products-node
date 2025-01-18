@@ -1,8 +1,10 @@
 import { Router } from 'express'
 import {
   createProduct,
+  deleteProduct,
   getProductById,
   getProducts,
+  updateAvilability,
   updateProduct,
 } from './handlers/product'
 import { body, validationResult, param } from 'express-validator'
@@ -42,6 +44,14 @@ router.put(
     updateProduct(req, res)
   }
 )
+router.patch(
+  '/:id',
+  param('id').isInt().withMessage('ID no válido'),
+  handleInputErrors,
+  (req, res) => {
+    updateAvilability(req, res)
+  }
+)
 
 router.post(
   '/',
@@ -64,16 +74,13 @@ router.post(
   // }
 )
 
-router.put('/', (req, res) => {
-  res.json('Desde PUT')
-})
-
-router.patch('/', (req, res) => {
-  res.json('Desde PATCH')
-})
-
-router.delete('/', (req, res) => {
-  res.json('Desde DELETE')
-})
+router.delete(
+  '/:id',
+  param('id').isInt().withMessage('ID no válido'),
+  handleInputErrors,
+  (req, res) => {
+    deleteProduct(req, res)
+  }
+)
 
 export default router
