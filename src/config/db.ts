@@ -9,6 +9,7 @@ const db = new Sequelize(
   {
     dialect: 'postgres',
     models: [__dirname + '/../models/**/*.ts'],
+    logging: false,
   }
 )
 
