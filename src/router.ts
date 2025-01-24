@@ -11,6 +11,60 @@ import { body, validationResult, param } from 'express-validator'
 import { handleInputErrors } from './middleware'
 
 const router = Router()
+
+/**
+ *
+ * @swagger
+ * components:
+ *  schemas:
+ *    Product:
+ *      type: object
+ *      properties:
+ *        id:
+ *          type: integer
+ *          description: The Product ID
+ *          example: 1
+ *        name:
+ *          type: string
+ *          description: The Product name
+ *          example: 'Cemento Holcim'
+ *        price:
+ *          type: number
+ *          description: The Product price
+ *          example: 5900
+ *        availability:
+ *          type: bollean
+ *          description: The Product availability
+ *          example: true
+ */
+
+/**
+ * @swagger
+ * /api/products:
+ *      get:
+ *        summary: Get a list of products
+ *        tags:
+ *          - Products
+ *        description: Return a list of products
+ *        responses:
+ *          200:
+ *            description: Successful response
+ *            content:
+ *              application/json:
+ *                schema:
+ *                  type: array
+ *                  items:
+ *                    $ref: '#/components/schemas/Product'
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ */
+
 // Routing
 router.get('/', getProducts)
 router.get(

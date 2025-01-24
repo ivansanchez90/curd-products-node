@@ -195,10 +195,10 @@ describe('PATCH /api/products/:id', () => {
     expect(response.body).not.toHaveProperty('data')
   })
   test('should update the prodcut availability', async () => {
-    // await request(server).post('/api/products').send({
-    //   name: 'Cal común - test 2',
-    //   price: 3900,
-    // })
+    await request(server).post('/api/products').send({
+      name: 'Cal común - test 2',
+      price: 3900,
+    })
     const productId = 2
     const response = await request(server).patch(`/api/products/${productId}`)
     expect(response.status).toBe(200)
@@ -209,19 +209,3 @@ describe('PATCH /api/products/:id', () => {
     expect(response.body).not.toHaveProperty('errors')
   })
 })
-
-// jest.mock('../../src/config/db')
-
-// describe('connectDB', () => {
-//   test('should handle database connection error', async () => {
-//     jest
-//       .spyOn(db, 'authenticate')
-//       .mockRejectedValueOnce(new Error('Hubo un error al conectar a la BD'))
-//     const consoleSpy = jest.spyOn(console, 'log')
-
-//     await connectDB()
-//     expect(consoleSpy).toHaveBeenCalledWith(
-//       expect.stringContaining('Hubo un error al conectar a la BD')
-//     )
-//   })
-// })
