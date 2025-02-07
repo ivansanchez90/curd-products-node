@@ -8,7 +8,7 @@ const db = new Sequelize(
   process.env.POSTGRES_PASSWORD,
   {
     dialect: 'postgres',
-    models: [__dirname + '/../models/**/*.ts'],
+    models: [__dirname + '/../models/**/*'],
     logging: false,
   }
 )
